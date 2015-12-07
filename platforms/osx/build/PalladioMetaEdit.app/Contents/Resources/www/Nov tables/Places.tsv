@@ -1,0 +1,131 @@
+Place ID	Place name	Coordinates	Vicinities	Geo-Historical Groups
+110.0	Abruzzi	42.517162, 14.147202	Kingdom of Naples	Kingdom of Naples
+1.0	Albano	41.733333, 12.666667	Rome	Papal States
+2.0	Ancona	43.6158299,13.518915	Papal States	Papal States
+3.0	Anzio	41.4495955,12.6197253	Papal States	Papal States
+111.0	Arco Felice	40.845278, 14.071944	Naples	Kingdom of Naples
+4.0	Arezzo	43.4632839,11.8796336	Grand Duchy of Toscana	Grand Duchy of Toscana
+5.0	Ariano	41.15, 15.084167	Kingdom of Naples	Kingdom of Naples
+6.0	Ariccia	41.7211083,12.6726413	Rome	Papal States
+7.0	Arienzo	41.0218158,14.5000054	Kingdom of Naples	Kingdom of Naples
+8.0	Asola	45.2201286,10.4130142	Duchy of Milan and Duchy of Mantua	Duchy of Milan and Duchy of Mantua
+9.0	Avellino	40.914388,14.7906121	Kingdom of Naples	Kingdom of Naples
+10.0	Avezzano	42.0281396,13.4255637	Kingdom of Naples	Kingdom of Naples
+112.0	Baiae	40.816667, 14.069722	Naples	Kingdom of Naples
+11.0	Bari	41.1171432,16.8718715	Kingdom of Naples	Kingdom of Naples
+12.0	Barletta	41.3196635,16.2838207	Kingdom of Naples	Kingdom of Naples
+13.0	Bassano	45.7657286,11.7272747	Republic of Venice	Republic of Venice
+14.0	Benevento	41.1297613,14.7826208	Kingdom of Naples	Kingdom of Naples
+15.0	Bergamo	45.6982642,9.6772698	Republic of Venice	Republic of Venice
+16.0	Bisceglie	41.243056, 16.505278	Kingdom of Naples	Kingdom of Naples
+17.0	Bologna	44.494887,11.3426163	Papal States	Papal States
+18.0	Bracciano	42.1017979,12.1761422	Papal States	Papal States
+19.0	Brescia	45.5415526,10.2118019	Republic of Venice	Republic of Venice
+20.0	Brindisi	40.6327278,17.9417616	Kingdom of Naples	Kingdom of Naples
+21.0	Calabria	39.3087714,16.3463791	Kingdom of Naples	Kingdom of Naples
+22.0	Capistrello	41.9685623,13.393248	Kingdom of Naples	Kingdom of Naples
+23.0	Caprarola	42.3272312,12.2387494	Kingdom of Naples	Kingdom of Naples
+24.0	Capri	40.5532009,14.222154	Kingdom of Naples	Kingdom of Naples
+25.0	Capua	41.1061258,14.2130486	Kingdom of Naples	Kingdom of Naples
+113.0	Caserta	41.066667, 14.333333	Kingdom of Naples	Kingdom of Naples
+26.0	Castelfranco	45.666667, 11.933333	Republic of Venice	Republic of Venice
+27.0	Castelluccio	41.3, 15.483333	Kingdom of Naples	Kingdom of Naples
+28.0	Celano	42.0822512,13.5429874	Kingdom of Naples	Kingdom of Naples
+29.0	Cerignola	41.2656592,15.8939163	Kingdom of Naples	Kingdom of Naples
+30.0	Civitavecchia	42.0924239,11.7954132	Papal States	Papal States
+31.0	Como	45.8080597,9.0851765	Duchy of Milan and Duchy of Mantua	Duchy of Milan and Duchy of Mantua
+114.0	Constantinople	41.01224, 28.976018	Beyond the Italian Peninsula	Beyond the Italian Peninsula
+115.0	Cori	41.64447, 12.91267	Papal States	Papal States
+32.0	Cortona	43.2750634,11.98512	Grand Duchy of Toscana	Grand Duchy of Toscana
+33.0	Cremona	45.133249,10.0226511	Duchy of Milan and Duchy of Mantua	Duchy of Milan and Duchy of Mantua
+116.0	Cuma	40.848611, 14.053611	Naples	Kingdom of Naples
+34.0	Eboli	40.6179234,15.0564332	Kingdom of Naples	Kingdom of Naples
+118.0	Egypt	26, 30	Beyond the Italian Peninsula	Beyond the Italian Peninsula
+35.0	Faenza	44.2898527,11.8774091	Papal States	Papal States
+36.0	Ferrara	44.8381237,11.619787	Papal States	Papal States
+37.0	Florence	43.7710332,11.2480006	Florence	Grand Duchy of Toscana
+38.0	Foligno	42.9508683,12.7014749	Papal States	Papal States
+39.0	Fondi	41.359119,13.4265681	Kingdom of Naples	Kingdom of Naples
+40.0	Forli	44.2227398,12.0407312	Papal States	Papal States
+41.0	Frascati	41.8085208,12.6761041	Rome	Papal States
+42.0	Gaeta	41.2107299,13.5714285	Kingdom of Naples	Kingdom of Naples
+43.0	Genoa	44.4056499,8.946256	Genoa Republic	Genoa Republic
+44.0	Gensano	41.7088828,12.6865837	Rome	Papal States
+45.0	Giovinazzo	41.1866839,16.6735966	Kingdom of Naples	Kingdom of Naples
+119.0	Greece	39, 22	Beyond the Italian Peninsula	Beyond the Italian Peninsula
+120.0	Herculaneum	40.806, 14.3482	Naples	Kingdom of Naples
+46.0	Isola di Sora	41.697221,13.579764	Kingdom of Naples	Kingdom of Naples
+47.0	Italy	41.87194,12.56738	Italy	Italy
+121.0	Lake Bolsena	42.6, 11.933333	Papal States	Papal States
+48.0	Lake Garda	45.6049385,10.6351414	Duchy of Milan and Duchy of Mantua	Duchy of Milan and Duchy of Mantua
+49.0	Lecce	40.3515155,18.1750161	Kingdom of Naples	Kingdom of Naples
+50.0	Leghorn	43.520833,10.416111	Grand Duchy of Toscana	Grand Duchy of Toscana
+51.0	Lerici	44.0756332,9.9169337	Genoa Republic	Genoa Republic
+52.0	Loreto	43.4396423,13.6065668	Papal States	Papal States
+53.0	Lucca	43.8376211,10.4950609	Duchy of Lucca	Duchy of Lucca
+54.0	Malta	46.3888979,9.664889	Beyond the Italian Peninsula	Beyond the Italian Peninsula
+55.0	Mantua	45.1564168,10.7913751	Duchy of Milan and Duchy of Mantua	Duchy of Milan and Duchy of Mantua
+56.0	Marino	41.7700866,12.6585371	Rome	Papal States
+57.0	Milan	45.4654219,9.1859243	Milan	Duchy of Milan and Duchy of Mantua
+58.0	Modena	44.6488366,10.9200867	Papal States	Papal States
+59.0	Molfetta	41.2027767,16.5987187	Kingdom of Naples	Kingdom of Naples
+60.0	Monopoli	40.9525166,17.2985559	Kingdom of Naples	Kingdom of Naples
+61.0	Mont Cenis	45.2375251,6.9280553	House of Savoy/Kingdom of Sardinia	House of Savoy/Kingdom of Sardinia
+63.0	Montebello	45.45, 11.383333	Republic of Venice	Republic of Venice
+62.0	Monte Cassino	41.490531,13.8138431	Kingdom of Naples	Kingdom of Naples
+64.0	Monza	45.5845001,9.2744485	Duchy of Milan and Duchy of Mantua	Duchy of Milan and Duchy of Mantua
+65.0	Naples	40.8517746,14.2681244	Naples	Kingdom of Naples
+66.0	Narni	42.5176022,12.5156299	Papal States	Papal States
+67.0	Nocera	40.747338,14.638914	Kingdom of Naples	Kingdom of Naples
+68.0	Olevano	41.85, 13.033333	Papal States	Papal States
+69.0	Otranto	40.1438978,18.4911678	Kingdom of Naples	Kingdom of Naples
+70.0	Padua	45.4064349,11.8767611	Republic of Venice	Republic of Venice
+71.0	Paestum	40.4231513,15.0071628	Kingdom of Naples	Kingdom of Naples
+122.0	Palestrina	41.833333, 12.9	Papal States	Papal States
+72.0	Parma	44.801485,10.3279036	Duchy of Parma	Duchy of Parma
+73.0	Pavia	45.1847248,9.1582069	Duchy of Milan and Duchy of Mantua	Duchy of Milan and Duchy of Mantua
+74.0	Perugia	43.1107168,12.3908279	Papal States	Papal States
+75.0	Pisa	43.7228386,10.4016888	Grand Duchy of Toscana	Grand Duchy of Toscana
+76.0	Pistoia	43.9303475,10.9078587	Grand Duchy of Toscana	Grand Duchy of Toscana
+77.0	Pola	44.878054,12.0185741	Beyond the Italian Peninsula	Beyond the Italian Peninsula
+78.0	Polignano a Mare	40.9948996,17.2225389	Kingdom of Naples	Kingdom of Naples
+79.0	Polla	40.5148399,15.4948137	Kingdom of Naples	Kingdom of Naples
+80.0	Pompeii	40.7481323,14.4898001	Naples	Kingdom of Naples
+81.0	Pontecorvo	41.4545679,13.6637674	Kingdom of Naples	Kingdom of Naples
+123.0	Pontine Marshes	41.466667, 12.9	Papal States	Papal States
+82.0	Portici	40.8141218,14.339067	Naples	Kingdom of Naples
+124.0	Pozzuoli	40.844444, 14.093333	Naples	Kingdom of Naples
+83.0	Ravenna	44.4183598,12.2035294	Papal States	Papal States
+84.0	Reggio (Calabria)	38.1113006,15.6472914	Kingdom of Naples	Kingdom of Naples
+117.0	Reggio (Emilia)	44.7, 10.633333	Duchy of Modena	Duchy of Modena
+125.0	Rhodes	36.166667, 28	Beyond the Italian Peninsula	Beyond the Italian Peninsula
+85.0	Rimini	44.0678288,12.5695158	Papal States	Papal States
+86.0	Rivoli	45.0710902,7.513821	House of Savoy/Kingdom of Sardinia	House of Savoy/Kingdom of Sardinia
+87.0	Rome	41.8723889,12.4801802	Rome	Papal States
+88.0	Salerno	40.6824408,14.7680961	Kingdom of Naples	Kingdom of Naples
+89.0	Sicily	37.5999938,14.0153557	Sicily	Sicily
+90.0	Siena	43.318809,11.3307574	Grand Duchy of Toscana	Grand Duchy of Toscana
+126.0	Solfatara	40.827, 14.139	Naples	Kingdom of Naples
+91.0	Sora	41.7188539,13.6130491	Papal States	Papal States
+127.0	Spalato	43.51, 16.45	Beyond the Italian Peninsula	Beyond the Italian Peninsula
+92.0	Spoleto	42.7305146,12.7344664	Papal States	Papal States
+93.0	Subiaco	41.9246531,13.0936685	Kingdom of Naples	Kingdom of Naples
+94.0	Tagliacozzo	42.0686395,13.2517751	Kingdom of Naples	Kingdom of Naples
+128.0	Tarquinia	42.249167, 11.756111	Grand Duchy of Toscana	Grand Duchy of Toscana
+95.0	Terni	42.5636168,12.6426604	Papal States	Papal States
+96.0	Terracina	41.2963728,13.2332657	Papal States	Papal States
+97.0	Tivoli	41.959817,12.8022261	Rome	Papal States
+98.0	Trani	41.2774857,16.4178334	Kingdom of Naples	Kingdom of Naples
+99.0	Trasacco	41.9600762,13.536615	Kingdom of Naples	Kingdom of Naples
+100.0	Treviso	45.6668893,12.2430437	Republic of Venice	Republic of Venice
+101.0	Trieste	45.6495264,13.7768182	Republic of Venice	Republic of Venice
+102.0	Turin	45.070312,7.6868565	Turin	House of Savoy/Kingdom of Sardinia
+103.0	Urbino	43.7262567,12.6365633	Papal States	Papal States
+104.0	Velletri	41.6868422,12.7785347	Rome	Papal States
+105.0	Veneto	45.7623333,11.690976	Republic of Venice	Republic of Venice
+106.0	Venice	45.4408474,12.3155151	Venice	Republic of Venice
+130.0	Vermei		Republic of Venice	Republic of Venice
+107.0	Verona	45.4383842,10.9916215	Republic of Venice	Republic of Venice
+131.0	Vesuvius	40.816667, 14.433333	Naples	Kingdom of Naples
+108.0	Vicenza	45.5454787,11.5354214	Republic of Venice	Republic of Venice
+109.0	Viterbo	42.4206766,12.107669	Papal States	Papal States
