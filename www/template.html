@@ -1,0 +1,95 @@
+<div id="main">
+	<div ng-show="files.length === 0" style="width: 80%; margin-left: 10%">
+		<textarea ui-refresh="" ui-codemirror="{ mode : 'text', lineNumbers : true, lineWrapping: true, onLoad : codemirrorLoaded }" placeholder="Paste your data or drop a file here" ng-model="text"></textarea>
+      	<button type="button" class="btn btn-primary" ng-click="addFile(text); text = null">Add file</button>
+	</div>
+	<div id="tables" 
+			style="overflow-x:scroll; white-space: nowrap; margin-bottom: 2px; height: 100%; padding-left: 30px"
+			ng-show="file.length !== 0">
+		<div class="table-display" ng-repeat="file in files"
+			style="display: inline-block; vertical-align:top; margin-right: 30px;"
+			ng-init="sortModes=['Map errors and gaps','Map by data types','Sort by values']; file.sortMode = sortModes[0]; sortFields(file); file.reviewMode = true;">
+			<div class="table-header pull-left" style="margin-bottom: 7px; overflow:hidden; white-space: nowrap; display: inline-block; clear: both;">
+				<span class="labels" style="width:263px; display:inline-block">
+					<span class="table-label" style="font-weight: strong; font-size: larger">{{file.label}}</span>
+				</span>
+				<span style="width: 35px; padding: 5px">
+					<input type="checkbox" 
+						ng-model="file.displayType"
+						style="height: 16px; width: 16px;">
+					</input>
+				</span>
+				<span ng-show="file.reviewMode">
+					<span ng-repeat="mode in sortModes" style="margin-left: 10px; margin-right: 10px"
+						ng-style="{ 'color': mode === file.sortMode ? '#bbbbbb' : '#68ABE5' }"
+						ng-click="file.sortMode = mode; file.sortMode === sortModes[2] ? file.editIndex = null : null; sortFields(file);">
+						{{mode}}
+					</span>
+				</span>
+			</div>
+			<div class="dimension pull-left" ng-repeat="field in file.fields"
+				style="overflow:hidden; white-space: nowrap; margin-bottom: 2px; height: 35px; display: inline-block; clear: both; left: -30px;">
+				<div style="height: 35px; width: 300px; display: inline-block; left: 0px;">
+					<div class="dimension-main" style="height: 35px; width: 263px; background-color: #eeeeee; padding: 5px; font-weight: lighter; display: inline-block;">
+						<div style="left: 5px; background-color: #eeeeee; padding-left: 5px; padding-right: 5px; border-radius: 4px"
+							ng-style="{ position: calcPosition(file) }">
+							<span class="pull-left" style="margin-top: 3px">{{field.description}}</span>
+						</div>
+						<span class="dimension-specials pull-right">
+							<div class="special-character" ng-repeat="special in field.special"
+								style="height: 25px; width: 25px; display: inline-block; margin-right: 2px; text-align: center; font-size: larger; font-weight: strong; border-radius: 4px;"
+								ng-style="{ 'background-color': field.unassignedSpecialChars.indexOf(special) === -1 ? '#bbbbbb' : '#EC5D57' }">
+								{{special}}
+							</div>
+						</span>
+					</div>
+					<div style="width: 35px; height:35px; display: inline-block; margin-left: -2px; padding: 5px";
+						ng-style="{ 'background-color' : file.displayType ? colors[field.detailType] : '#eeeeee' }"
+						data-toggle="tooltip" data-placement="top" title="{{typeTexts[field.detailType] ? typeTexts[field.detailType] : 'not found'}}"
+						class="dimension-type">
+						<span ng-hide="!file.reviewMode" class="pull-left"
+							style="width: 25px; font-weight: lighter; margin-top: 3px; text-align: center;"
+							ng-style="{ color: file.displayType ? textColors[field.detailType] : '#444444' }">
+							{{numberWithValue(file, field)}}
+						</span>
+					</div>
+				</div>
+				<div style="height: 35px; display: inline-block; margin-left: -2px"
+						ng-show="file.reviewMode">
+					<span ng-show="file.editIndex !== null && file.editIndex !== undefined"
+						style="height: 35px; display: inline-block; width: 200px; position: relative; float: left;"
+						ng-style="{ left: file.editIndex*4 }">
+						<input type="text" ng-model="file.data[file.editIndex][field.key]"
+							style="width:200px; margin:0px; height: 35px;"
+							ng-focus="clearArrowEffect()"
+							ng-change="field.sortedValues[file.editIndex].color = colorCalc(file.data[file.editIndex][field.key], file.sortMode === sortModes[0] ? 'edit' : 'type', field)"
+							ng-style="{ 'color': colorCalc(file.data[file.editIndex][field.key], file.sortMode === sortModes[0] ? 'edit' : 'type', field) }"></input>
+					</span>
+					<div style="height:35px; display: inline-block"
+						ng-style="{ 'margin-left': file.editIndex !== null && file.editIndex !== undefined ? '-200px' : '0px' }">
+						<div ng-repeat="obj in field.sortedValues"
+							style="height: 35px; margin-right: 1px; display: inline-block;"
+							ng-style="{ width: $index === file.editIndex ? '200px' : 3 + 'px', 'background-color': $index === file.editIndex ? 'white' : obj.color }"
+							ng-click="file.sortMode !== sortModes[2] ? assignIndexAndFile(file, $index) : null">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="pull-left"
+				style="font-size: smaller; color: #EC5D57; margin-top: 5px; height: 35px; display: inline-block; clear: left; left: -30px;"
+				ng-click="files.splice($index, 1)">
+				
+				Remove file
+			</div>
+			<div
+				class="pull-left"
+				style="display: inline-block; font-size: smaller; color: #EC5D57; margin-top: 5px; margin-left: 20px;"
+				tooltip-append-to-body="true"
+				tooltip="Download as .csv"
+				tooltip-placement="right"
+				data-ng-click="downloadFile(file)">
+					Download file
+			</div>
+		</div>
+	</div>
+</div>
