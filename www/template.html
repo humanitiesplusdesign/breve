@@ -1,22 +1,27 @@
 <div id="main">
-	<div ng-show="files.length === 0" style="width: 80%; margin-left: 10%">
+  <div ng-show="files.length === 0" style="width: 80%; margin-left: 10%">
 		<textarea ui-refresh="" ui-codemirror="{ mode : 'text', lineNumbers : true, lineWrapping: true, onLoad : codemirrorLoaded }" placeholder="Paste your data or drop a file here" ng-model="text"></textarea>
       	<button type="button" class="btn btn-primary" ng-click="addFile(text); text = null">Add file</button>
 	</div>
 	<div id="tables" 
 			style="overflow-x:scroll; white-space: nowrap; margin-bottom: 2px; height: 100%; padding-left: 30px"
-			ng-show="file.length !== 0">
+      ng-show="files.length !== 0">
 		<div class="table-display" ng-repeat="file in files"
 			style="display: inline-block; vertical-align:top; margin-right: 30px;"
 			ng-init="sortModes=['Map errors and gaps','Map by data types','Sort by values']; file.sortMode = sortModes[0]; sortFields(file); file.reviewMode = true;">
 			<div class="table-header pull-left" style="margin-bottom: 7px; overflow:hidden; white-space: nowrap; display: inline-block; clear: both;">
 				<span class="labels" style="width:263px; display:inline-block">
-					<span class="table-label" style="font-weight: strong; font-size: larger">{{file.label}}</span>
+					<input tooltip-animation="false" tooltip-append-to-body="true" tooltip="Rename" data-container="body"
+            data-placement="top" type="text" class="form-control editable ng-pristine ng-untouched ng-valid table-label"
+            ng-model="file.label" placeholder="Untitled">
+					<span class="review-label"
+						style="font-weight: strong; font-size: larger; color: #EC5D57;"
+						ng-click="file.reviewMode = !file.reviewMode; centerTable($event);">&nbsp;</span>
 				</span>
-				<span style="width: 35px; padding: 5px">
+				<span style="width: 35px; padding: 5px; display:inline-block;">
 					<input type="checkbox" 
 						ng-model="file.displayType"
-						style="height: 16px; width: 16px;">
+						style="height: 16px; width: 16px; margin-top:0px;">
 					</input>
 				</span>
 				<span ng-show="file.reviewMode">
@@ -29,16 +34,23 @@
 			</div>
 			<div class="dimension pull-left" ng-repeat="field in file.fields"
 				style="overflow:hidden; white-space: nowrap; margin-bottom: 2px; height: 35px; display: inline-block; clear: both; left: -30px;">
-				<div style="height: 35px; width: 300px; display: inline-block; left: 0px;">
-					<div class="dimension-main" style="height: 35px; width: 263px; background-color: #eeeeee; padding: 5px; font-weight: lighter; display: inline-block;">
-						<div style="left: 5px; background-color: #eeeeee; padding-left: 5px; padding-right: 5px; border-radius: 4px"
-							ng-style="{ position: calcPosition(file) }">
-							<span class="pull-left" style="margin-top: 3px">{{field.description}}</span>
-						</div>
+				<div style="height: 35px; max-width: 300px; display: inline-block; left: 0px;">
+					<div class="dimension-main" style="height: 35px; width: 263px; background-color: #eeeeee; padding: 5px; font-weight: lighter; display: inline-block;"
+						data-toggle="modal" data-target="#dimensionEditModal"
+						ng-click="assignSelectedFieldandFile(field, file)">
+						<div style="left: 5px; overflow: visible; width: 263px;">
+              <i class="source-type fa pull-left" style="margin-top:6px; margin-right: 7px; min-width:12px;"
+                  ng-class="{ 'fa-circle': field.sourceType === 'authored', 'fa-dot-circle-o': field.sourceType === 'curated', 'fa-circle-o': field.sourceType === 'source' }"
+                  data-toggle="tooltip" data-placement="right" title="{{sourceTexts[field.sourceType] ? sourceTexts[field.sourceType] : 'No source information provided'}}"></i>
+              <div style="padding-left: 5px; padding-right: 5px; border-radius: 4px; background-color: #eeeeee;" ng-style="{ position: calcPosition(file) }">
+                <span class="pull-left" style="margin-top: 3px">{{field.description}}{{field.mvDelimiter ? ' (M)' : ''}}</span>
+              </div>
+            </div>
 						<span class="dimension-specials pull-right">
 							<div class="special-character" ng-repeat="special in field.special"
 								style="height: 25px; width: 25px; display: inline-block; margin-right: 2px; text-align: center; font-size: larger; font-weight: strong; border-radius: 4px;"
-								ng-style="{ 'background-color': field.unassignedSpecialChars.indexOf(special) === -1 ? '#bbbbbb' : '#EC5D57' }">
+								ng-style="{ 'background-color': filterSpecials(field.unassignedSpecialChars, field.verifiedSpecialChars).indexOf(special) === -1 ? '#bbbbbb' : '#EC5D57' }"
+								ng-click="field.verifiedSpecialChars.push(special); $event.stopPropagation()">
 								{{special}}
 							</div>
 						</span>
@@ -81,14 +93,209 @@
 				
 				Remove file
 			</div>
-			<div
-				class="pull-left"
-				style="display: inline-block; font-size: smaller; color: #EC5D57; margin-top: 5px; margin-left: 20px;"
-				tooltip-append-to-body="true"
-				tooltip="Download as .csv"
-				tooltip-placement="right"
-				data-ng-click="downloadFile(file)">
-					Download file
+		</div>
+	</div>
+	<div style="padding-left: 30px">
+		<!-- Button trigger add file modal -->
+		<!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addFileModal">
+			Add file
+		</button>-->
+		<!--<div palladio-data-download data-ng-show="files.length" style="display:inline-block">
+			Download Palladio save file
+		</div>-->
+    <button
+      type="button" class="btn btn-primary btn-lg"
+      ng-show="files.length !== 0"
+      tooltip-append-to-body="true"
+      tooltip="Download as .csv"
+      tooltip-placement="right"
+      ng-click="downloadFile(files[0])">
+        Download as CSV
+    </button>
+	</div>
+</div>
+
+<!-- Add File Modal -->
+<div class="modal fade" id="addFileModal" tabindex="-1" role="dialog" aria-labelledby="addFileModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addFileModalLabel">Add File</h4>
+      </div>
+      <div class="modal-body">
+        <textarea ui-refresh="" ui-codemirror="{ mode : 'text', lineNumbers : true, lineWrapping: true, onLoad : codemirrorLoaded }" placeholder="Paste your data or drop a file here" ng-model="text"></textarea>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="text = null">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="addFile(text); text = null" data-dismiss="modal">Add file</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Dimension edit modal -->
+
+<div class="modal" id="dimensionEditModal" tabindex="-1" role="dialog" aria-labelledby="dimensionEditModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<span>Edit dimension</span>
+			</div>
+
+			<!-- Modal Body -->
+			<div class="modal-body">
+				<div>
+					<div class="row margin-bottom">
+						<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 text-right">
+							<label class="inline">Title</label>
+						</div>
+						<div class="col-lg-10 col-md-10 col-sm-8 col-xs-8 col-condensed">
+							<div class="row margin-bottom">
+									<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+										<input
+											data-toggle="tooltip"
+											data-original-title="Rename"
+											type="text"
+											required
+											class="form-control"
+											data-ng-model="selectedFieldMetadata.description" placeholder="Untitled"></input>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+										<label>Source <i class="fa fa-question-circle hint" popover-trigger="mouseenter" popover="Choose a description of the source or authorship of data in this column."></i></label>
+										<ui-select ng-model="selectedFieldMetadata.sourceType" theme="selectize" on-select="updateMetadata()" append-to-body="true">
+											<ui-select-match placeholder="Select" allow-clear="true">
+												{{$select.selected.displayKey}}
+												<span class="caret"></span>
+											</ui-select-match>
+											<ui-select-choices repeat="type.key as type in sourceTextArray | filter: {key:$select.search}">
+												<span ng-bind-html="type.displayKey | highlight: $select.search"></span><br/>
+												<span class="text-muted" ng-bind-html="type.value"></span>
+											</ui-select-choices>
+										</ui-select>
+									</div>
+							</div>
+						</div>
+					</div>
+	
+	
+					<div class="row margin-top">
+						<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 text-right">
+							<label class="inline">Data type</label>
+						</div>
+						<div class="col-lg-9 col-md-9 col-sm-8 col-xs-8 col-condensed">
+	
+							<ui-select ng-model="selectedFieldMetadata.detailType" theme="selectize" ng-disabled="disabled" on-select="updateMetadata()" append-to-body="true">
+								<ui-select-match placeholder="Select or search">
+									{{$select.selected.name}}
+									<span class="caret"></span>
+								</ui-select-match>
+								<ui-select-choices repeat="type.id as type in allowedTypes | filter: {name:$select.search}">
+									<span ng-bind-html="type.name | highlight: $select.search"></span><br/>
+									<span class="text-muted" ng-bind-html="type.description"></span>
+								</ui-select-choices>
+							</ui-select>
+	
+							<p class="help-block" data-ng-show="selectedFieldMetadata.errors.length">{{selectedFieldMetadata.errors.length}} unique values do not match this data type!</p>
+							<p class="help-block" data-ng-hide="selectedFieldMetadata.errors.length">All the values match this type.</p>
+						</div>
+					</div>
+	
+	
+					<div class="row">
+	
+						<div class="col-lg-2 col-md-2 col-sm-4 col-xs-4 text-right">
+							<label class="inline">Unique values</label>
+						</div>
+	
+						<div class="col-lg-10 col-md-10 col-sm-8 col-xs-8 col-condensed">
+	
+							<div class="row margin-bottom">
+	
+								<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+	
+									<div class="row">
+	
+										<div class="col-lg-5 col-md-6 col-sm-6 margin-bottom">
+											<input type="text" class="form-control" ng-model="searchUnique.key" placeholder="Search"></input>
+										</div>
+	
+										<div class="col-lg-5 col-lg-offset-2 col-md-6 col-sm-6">
+	
+											<ui-select class="pull-right" ng-model="displayOptions.sortBy" theme="selectize" ng-disabled="disabled" on-select="updateMetadata()">
+												<ui-select-match placeholder="Select or search">
+													<!--<i class="fa margin-right" ng-class="$select.selected.icon"></i>-->
+													{{$select.selected.label}}
+													<span class="caret"></span>
+												</ui-select-match>
+												<ui-select-choices repeat="type in sortOptions | filter: {label:$select.search}">
+													<span ng-bind-html="type.label | highlight: $select.search"></span><br/>
+												</ui-select-choices>
+											</ui-select>
+	
+											<div class="clearfix"></div>
+	
+										</div>
+	
+									</div>
+	
+									<div class="unique-values margin-bottom">
+										<table
+											class="table table-striped"
+											data-ng-show="!filtered || (filtered && filtered.length > 0)">
+											<tr data-ng-repeat="val in filtered = (selectedFieldMetadata.uniques | filter:searchUnique) | limitTo:1000">
+													<td
+														data-ng-class="{ 'text-danger': findError(val.key) }"
+														title="{{findError(val.key).message}}"
+														data-ng-bind-html="displayVal(val)">
+												</td>
+											</tr>
+										</table>
+										<div class="padding-all text-danger small" data-ng-show="filtered && filtered.length == 0">No values found</div>
+									</div>
+	
+									<p class="help-block"><strong>{{filtered.length}}</strong> values displayed.</p>
+	
+								</div>
+	
+								<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+	
+									<!--<div ng-show="selectedFieldMetadata.unassignedSpecialChars.length">
+										<span class="help-block">Some of the values in this dimension contain the following special characters. If you want to use them as delimiter, type them into the forms below.</span>
+										<div specials></div>
+									</div>-->
+	
+									<div class="margin-bottom" ng-show="selectedFieldMetadata.unassignedSpecialChars.length">
+										<label>
+											<span data-ng-class="{ 'text-danger': selectedFieldMetadata.unassignedSpecialChars.length !==  selectedFieldMetadata.verifiedSpecialChars.length}">
+												Verify special characters
+											</span> <i class="fa fa-question-circle hint" popover-trigger="mouseenter" popover="Special characters may be errors or multiple-value delimiters."></i></label>
+										<div specials></div>
+									</div>
+	
+									<label>Multiple values <i class="fa fa-question-circle hint" popover-trigger="mouseenter" popover="Field contains multiple values that are split by this character."></i></label>
+									<input type="text" id="val-delimiter" class="form-control"
+										data-ng-model="selectedFieldMetadata.mvDelimiter"
+										data-ng-change="updateMetadata()"/>
+									<span class="help-block">If the dimension contains multiple values, insert the delimiter string above</span>
+								</div>
+	
+							</div>
+	
+	
+	
+						</div>
+	
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal Footer -->
+			<div class="modal-footer">
+				<button data-ng-show="selectedFieldMetadata.unassignedSpecialChars.length === selectedFieldMetadata.verifiedSpecialChars.length" type="button" class="btn btn-default" data-dismiss="modal" ng-click="hideNewTable()"><i class="fa fa-check margin-right text-primary"></i>Done</button>
+				<button data-ng-show="selectedFieldMetadata.unassignedSpecialChars.length !== selectedFieldMetadata.verifiedSpecialChars.length" type="button" class="btn btn-default" data-dismiss="modal" ng-click="hideNewTable()">Close</button>
 			</div>
 		</div>
 	</div>
