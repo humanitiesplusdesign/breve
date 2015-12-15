@@ -24,10 +24,7 @@
         <script src="./palladio-metavis-component.js"></script>
 
         <script>
-            console.log("Starting here");
             var components = startPalladio(['palladioMetavis']);
-            
-            console.log("Well, we got this far.");
 
             components.loadData('empty.json', function() {
                 components.add('metavis', "#metavis-here");

@@ -1,3 +1,4 @@
+/* global cordova */
 /* global angular */
 /* global d3 */
 angular.module('palladioMetavis', ['palladio', 'palladio.services'])
@@ -63,7 +64,7 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 					scope.lastFileName = null;
 					
 					var errorHandler = function (fileName, e) {  
-						alert("Error");
+						alert("Error writing to " + fileName);
 					}
 					
 					scope.downloadFile = function(file) {
@@ -72,37 +73,29 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 							{type: "text/csv;charset=utf-8"}
 						);
 						var fileName = file.label + ".csv";
-						// saveAs(blob, fileName);
 						
-						alert("Ok lets try");
 						var directory = cordova.file.documentsDirectory || cordova.file.dataDirectory || cordova.file.tempDirectory;
-						alert(directory);
-						alert(window.resolveLocalFileSystemURL);
-						window.resolveLocalFileSystemURL('cdvfile://localhost/documents/', function(entry) {
-							alert(entry.toURL());
-						}, function() {
-							alert("Error");
-						});
-						// window.resolveLocalFileSystemURL('cdvfile://localhost/documents/', function (directoryEntry) {
-						// 	alert("Got the directory entry");
-						// 	alert(directoryEntry);
-							// directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
-							// 	fileEntry.createWriter(function (fileWriter) {
-							// 		fileWriter.onwriteend = function (e) {
-							// 			// for real-world usage, you might consider passing a success callback
-							// 			console.log('Write of file "' + fileName + '"" completed.');
-							// 		};
+						window.resolveLocalFileSystemURL(directory, function (directoryEntry) {
+              var dateNow = new Date();
+              var fileName = file.label + '-' + dateNow.getFullYear() + '-' +
+                (dateNow.getMonth()+1) + '-' + dateNow.getDay() + '-' +
+                dateNow.getHours() + '-' + dateNow.getMinutes() + '-' +
+                dateNow.getSeconds() + '.csv';
+							directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
+								fileEntry.createWriter(function (fileWriter) {
+									fileWriter.onwriteend = function (e) {
+								    // for real-world usage, you might consider passing a success callback
+										alert('File "' + fileName + '"" saved to documents directory.');
+									};
 				
-							// 		fileWriter.onerror = function (e) {
-							// 			// you could hook this up with our global error handler, or pass in an error callback
-							// 			console.log('Write failed: ' + e.toString());
-							// 		};
-				
-							// 		var blob = new Blob([data], { type: 'text/plain' });
-							// 		fileWriter.write(blob);
-							// 	}, errorHandler.bind(null, fileName));
-							// }, errorHandler.bind(null, fileName));
-						// }, errorHandler);
+									fileWriter.onerror = function (e) {
+										// you could hook this up with our global error handler, or pass in an error callback
+										alert('Write failed: ' + e.toString());
+									};
+									fileWriter.write(blob);
+								}, errorHandler.bind(null, fileName));
+							}, errorHandler.bind(null, fileName));
+						}, errorHandler.bind(null, fileName));
 					};
 				},
 
