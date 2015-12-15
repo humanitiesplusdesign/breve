@@ -1,0 +1,21 @@
+{
+  "name": "www",
+  "homepage": "https://github.com/humanitiesplusdesign/breve",
+  "authors": [
+    "Ethan Jewett <esjewett@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "palladio": "1.2.0-beta.02"
+  }
+}
