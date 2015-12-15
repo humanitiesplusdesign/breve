@@ -1,0 +1,18 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "org.designhumanities.breve"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "org.designhumanities.breve"
+        }
+    },
+    "dependent_plugins": {}
+}
