@@ -7981,7 +7981,12 @@ table.dataTable{width:100%;margin:0 auto;clear:both;border-collapse:separate;bor
 	display: inline-block;
 	width: 215px;
 	margin-right: 10px;
+	vertical-align: top;
 	overflow-y: auto;
+}
+
+[data-palladio-facet-filter] .facet-container {
+	display: inline-block;
 }
 
 [data-palladio-facet-filter] .facet-drop-area {
@@ -8016,6 +8021,7 @@ table.dataTable{width:100%;margin:0 auto;clear:both;border-collapse:separate;bor
 	font-size: 12px;
 	width: 200px;
 	padding: 6px 0px;
+	overflow-x: auto;
 }
 
 [data-palladio-facet-filter] .cell {
@@ -8800,19 +8806,6 @@ table.dataTable{width:100%;margin:0 auto;clear:both;border-collapse:separate;bor
 [data-palladio-histogram-filter] .axis text {
 	font: 10px Helvetica, Arial, sans-serif;
 }
-[data-palladio-timespan-filter] path {
-	fill: #dddddd;
-}
-
-[data-palladio-timespan-filter] .axis path, [data-palladio-timespan-filter] .axis line {
-	fill: none;
-	stroke: #000;
-	shape-rendering: crispEdges;
-}
-
-[data-palladio-timespan-filter] .axis text {
-	font: 10px Helvetica, Arial, sans-serif;
-}
 [data-palladio-parduration-filter] path {
 	fill: #dddddd;
 }
@@ -8824,6 +8817,19 @@ table.dataTable{width:100%;margin:0 auto;clear:both;border-collapse:separate;bor
 }
 
 [data-palladio-parduration-filter] .axis text {
+	font: 10px Helvetica, Arial, sans-serif;
+}
+[data-palladio-timespan-filter] path {
+	fill: #dddddd;
+}
+
+[data-palladio-timespan-filter] .axis path, [data-palladio-timespan-filter] .axis line {
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
+}
+
+[data-palladio-timespan-filter] .axis text {
 	font: 10px Helvetica, Arial, sans-serif;
 }
 .pt-perspective {

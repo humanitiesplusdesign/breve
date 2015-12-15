@@ -24,11 +24,13 @@
         <script src="./palladio-metavis-component.js"></script>
 
         <script>
-            var components = startPalladio(['palladioMetavis']);
+            document.addEventListener("deviceready", function() {
+              var components = startPalladio(['palladioMetavis']);
 
-            components.loadData('empty.json', function() {
-                components.add('metavis', "#metavis-here");
-            });
+              components.loadData('empty.json', function() {
+                  components.add('metavis', "#metavis-here");
+              });
+            }, false);
         </script>
 
     </body>

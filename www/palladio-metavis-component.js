@@ -22,7 +22,13 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 					}
 					
 					scope.reparseFile = function(d) {
-						d.fields.forEach(function(f) { scope.reparseField(f,d); });
+            var fields = parseService.getFields(d.data);
+						d.fields.forEach(function(f,i) {
+              if(!f.type) {
+                f.type = fields[i].type;
+              }
+              scope.reparseField(f,d);
+            });
 					};
 					
 					scope.reparseField = function(f, d) {
@@ -34,7 +40,7 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 						f.uniqueValues = f.uniques.map(function(u) { return u.key; });
 						f.sourceType = f.sourceType ? f.sourceType : null;
 						
-						f.detailType = f.type;
+						f.detailType = f.detailType ? f.detailType : (f.type ? f.type : null);
 						
 						if(f.uniqueKey && f.detailType === "number") {
 							f.detailType = 'uniqueNumeric';
@@ -277,7 +283,7 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 					function setTooltips() {
 						setTimeout(function() {
 							addTooltips();
-						}, 100);	
+						}, 300);	
 					}
 					function addTooltips() {
 						angular.element(element[0]).find('div.dimension-type').tooltip();
@@ -449,6 +455,7 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 					
 					scope.updateMetadata = function() {
 						scope.reparseUniques(scope.selectedFieldMetadata, scope.selectedFile);
+            scope.sortField(scope.selectedFieldMetadata, scope.selectedFile);
 						removeTooltips();
 						setTooltips();
 					}
@@ -492,6 +499,7 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 								var data = parseService.parseText(text);
 								
 								dataService.addFile(data, scope.lastFileName);
+                alert(dataService.getFiles()[dataService.getFiles().length-1].fields[6].type);
 								scope.lastFileName = null;
 								scope.reparseFile(dataService.getFiles()[dataService.getFiles().length-1]);
 							} catch(error) {
