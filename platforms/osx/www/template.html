@@ -48,7 +48,7 @@
             </div>
 						<span class="dimension-specials pull-right">
 							<div class="special-character" ng-repeat="special in field.special"
-								style="height: 25px; width: 25px; display: inline-block; margin-right: 2px; text-align: center; font-size: larger; font-weight: strong; border-radius: 4px;"
+								style="color: #FFFFFF; height: 25px; width: 25px; display: inline-block; margin-right: 2px; text-align: center; font-size: larger; font-weight: strong; border-radius: 4px;"
 								ng-style="{ 'background-color': filterSpecials(field.unassignedSpecialChars, field.verifiedSpecialChars).indexOf(special) === -1 ? '#bbbbbb' : '#EC5D57' }"
 								ng-click="field.verifiedSpecialChars.push(special); $event.stopPropagation()">
 								{{special}}
@@ -60,8 +60,8 @@
 						data-toggle="tooltip" data-placement="top" title="{{typeTexts[field.detailType] ? typeTexts[field.detailType] : 'not found'}}"
 						class="dimension-type">
 						<span ng-hide="!file.reviewMode" class="pull-left"
-							style="width: 25px; font-weight: lighter; margin-top: 3px; text-align: center;"
-							ng-style="{ color: file.displayType ? textColors[field.detailType] : '#444444' }">
+							style="width: 25px; font-weight: lighter; text-align: center;"
+							ng-style="{ color: file.displayType ? textColors[field.detailType] : '#444444', 'font-size': numberWithValue(file, field)>999 ? 'smaller' : 'inherit', 'margin-top': numberWithValue(file, field)>999 ? '4px' : '3px' }">
 							{{numberWithValue(file, field)}}
 						</span>
 					</div>

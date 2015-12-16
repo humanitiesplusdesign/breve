@@ -58,6 +58,8 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 							f.detailType = 'nominalText';
 						}
             if(f.detailType === 'numeric') f.detailType = 'number';
+            
+            if(f.verifiedSpecialChars === undefined) f.verifiedSpecialChars = []; 
 					};
 					
 					scope.reparseUniques = function(f,d) {
