@@ -13,3 +13,10 @@
   max-width: 200px;
   display: inline-block;
 }
+
+[data-palladio-metavis] .field-description {
+  margin-top: 3px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

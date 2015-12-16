@@ -57,6 +57,7 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 						if(f.uniques.length > 2 && f.uniques.length < 10 && f.detailType === 'text') {
 							f.detailType = 'nominalText';
 						}
+            if(f.detailType === 'numeric') f.detailType = 'number';
 					};
 					
 					scope.reparseUniques = function(f,d) {
@@ -185,7 +186,7 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 					scope.allowedTypes = [
 						{id: 'uniqueNumeric', name: 'Unique Numeric', description: 'Numeric and unique data such as 1234 or 1.234'},
 						{id: 'uniqueText', name: 'Unique Text', description: 'Any text-based data that is unique'},
-						{id: 'numeric', name: 'Numeric', description: 'Numeric data such as 1234 or 1.234'},
+						{id: 'number', name: 'Numeric', description: 'Numeric data such as 1234 or 1.234'},
 						{id: 'text', name: 'Text', description: 'Any text-based data'},
 						{id: 'binary0', name: 'Binary', description: "Binary data such as Y/N, True/False" },
 						{id: 'ordinalNumeric', name: 'Ordinal Numeric', description: "Numeric, categorical data with a limited number (<10) of categories" },
@@ -499,7 +500,6 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 								var data = parseService.parseText(text);
 								
 								dataService.addFile(data, scope.lastFileName);
-                alert(dataService.getFiles()[dataService.getFiles().length-1].fields[6].type);
 								scope.lastFileName = null;
 								scope.reparseFile(dataService.getFiles()[dataService.getFiles().length-1]);
 							} catch(error) {

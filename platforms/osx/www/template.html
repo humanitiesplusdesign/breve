@@ -43,7 +43,7 @@
                   ng-class="{ 'fa-circle': field.sourceType === 'authored', 'fa-dot-circle-o': field.sourceType === 'curated', 'fa-circle-o': field.sourceType === 'source' }"
                   data-toggle="tooltip" data-placement="right" title="{{sourceTexts[field.sourceType] ? sourceTexts[field.sourceType] : 'No source information provided'}}"></i>
               <div style="padding-left: 5px; padding-right: 5px; border-radius: 4px; background-color: #eeeeee;" ng-style="{ position: calcPosition(file) }">
-                <span class="pull-left" style="margin-top: 3px">{{field.description}}{{field.mvDelimiter ? ' (M)' : ''}}</span>
+                <span class="pull-left field-description">{{field.description}}{{field.mvDelimiter ? ' (M)' : ''}}</span>
               </div>
             </div>
 						<span class="dimension-specials pull-right">
