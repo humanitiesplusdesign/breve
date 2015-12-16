@@ -30,7 +30,7 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
-    <icon src="res/breve_icon_512_512.png" />
+    <icon src="res/breve_icon_96.png" />
     <preference name="windows-target-version" value="10.0" />
     <content src="index.html" />
     <access origin="*" />
