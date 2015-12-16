@@ -188,7 +188,7 @@
 						<div class="col-lg-9 col-md-9 col-sm-8 col-xs-8 col-condensed">
 	
 							<ui-select ng-model="selectedFieldMetadata.detailType" theme="selectize" ng-disabled="disabled" on-select="updateMetadata()" append-to-body="true">
-								<ui-select-match placeholder="Select or search">
+								<ui-select-match placeholder="Select">
 									{{$select.selected.name}}
 									<span class="caret"></span>
 								</ui-select-match>
@@ -225,7 +225,7 @@
 										<div class="col-lg-5 col-lg-offset-2 col-md-6 col-sm-6">
 	
 											<ui-select class="pull-right" ng-model="displayOptions.sortBy" theme="selectize" ng-disabled="disabled" on-select="updateMetadata()">
-												<ui-select-match placeholder="Select or search">
+												<ui-select-match placeholder="Select">
 													<!--<i class="fa margin-right" ng-class="$select.selected.icon"></i>-->
 													{{$select.selected.label}}
 													<span class="caret"></span>
