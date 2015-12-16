@@ -1,0 +1,18 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "Breve"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "Breve"
+        }
+    },
+    "dependent_plugins": {}
+}

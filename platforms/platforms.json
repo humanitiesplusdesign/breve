@@ -1,3 +1,4 @@
 {
-    "osx": "../cordova-osx"
+    "osx": "../cordova-osx",
+    "windows": "4.1.0"
 }
