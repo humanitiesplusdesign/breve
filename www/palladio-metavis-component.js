@@ -225,13 +225,17 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 					};
 					
 					scope.sortOptions = [
-						{ label:'Sort by Value', value:'key', icon: 'fa-sort-alpha-asc' },
-						{ label:'Sort by Frequency', value:'value', icon: 'fa-sort-numeric-asc'}
+						{ label:'Sort by Value', value:'key', icon: 'fa-sort-alpha-asc', ordering: function(a) { return a.key; } },
+						{ label:'Sort by Frequency', value:'value', icon: 'fa-sort-numeric-asc', ordering: function(a) { return -a.value; }}
 					];
           
           scope.displayOptions = {
             sortBy : scope.sortOptions[0]
           }
+          
+          scope.$watch('displayOptions.sortBy', function() {
+            scope.sortOrder = scope.displayOptions.sortBy.ordering;
+          });
 					
 					scope.filterSpecials = function(unassigned, verified) {
 						if(!verified) { verified = []; }

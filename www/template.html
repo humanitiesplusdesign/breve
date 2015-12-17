@@ -245,7 +245,7 @@
 										<table
 											class="table table-striped"
 											data-ng-show="!filtered || (filtered && filtered.length > 0)">
-											<tr data-ng-repeat="val in filtered = (selectedFieldMetadata.uniques | filter:searchUnique) | limitTo:1000">
+											<tr data-ng-repeat="val in filtered = (selectedFieldMetadata.uniques | filter:searchUnique | orderBy: sortOrder) | limitTo:1000">
 													<td
 														data-ng-class="{ 'text-danger': findError(val.key) }"
 														title="{{findError(val.key).message}}"
