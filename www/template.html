@@ -77,7 +77,7 @@
 							ng-change="field.sortedValues[file.editIndex].color = colorCalc(file.data[file.editIndex][field.key], file.sortMode === sortModes[0] ? 'edit' : 'type', field)"
 							ng-style="{ 'color': colorCalc(file.data[file.editIndex][field.key], file.sortMode === sortModes[0] ? 'edit' : 'type', field) }"></input>
 					</span>
-					<div style="height:35px; display: inline-block"
+					<div style="height:35px; display: inline-block; background-color: #eeeeee"
 						ng-style="{ 'margin-left': file.editIndex !== null && file.editIndex !== undefined ? '-200px' : '0px' }">
 						<div ng-repeat="obj in field.sortedValues"
 							style="height: 35px; margin-right: 1px; display: inline-block;"
