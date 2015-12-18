@@ -12,6 +12,9 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "Breve"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "Breve"
         }
     },
     "dependent_plugins": {}

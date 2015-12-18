@@ -23,6 +23,9 @@
         },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "org.designhumanities.breve"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "org.designhumanities.breve"
         }
     },
     "dependent_plugins": {},
@@ -197,6 +200,7 @@
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.0",
-        "cordova-plugin-file": "4.0.1-dev"
+        "cordova-plugin-file": "4.0.1-dev",
+        "cordova-plugin-inappbrowser": "1.1.2-dev"
     }
 }

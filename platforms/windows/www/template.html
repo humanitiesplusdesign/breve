@@ -8,7 +8,7 @@
       ng-show="files.length !== 0">
 		<div class="table-display" ng-repeat="file in files"
 			style="display: inline-block; vertical-align:top; margin-right: 30px;"
-			ng-init="sortModes=['Map errors and gaps','Map by data types','Sort by values']; file.sortMode = sortModes[0]; sortFields(file); file.reviewMode = true;">
+			ng-init="sortModes=['Map errors and gaps','Map by data types','Sort by values']; file.sortMode = sortModes[1]; sortFields(file); file.reviewMode = true; file.displayType = true;">
 			<div class="table-header pull-left" style="margin-bottom: 7px; overflow:hidden; white-space: nowrap; display: inline-block; clear: both;">
 				<span class="labels" style="width:263px; display:inline-block">
 					<input tooltip-animation="false" tooltip-append-to-body="true" tooltip="Rename" data-container="body"
@@ -48,7 +48,7 @@
             </div>
 						<span class="dimension-specials pull-right">
 							<div class="special-character" ng-repeat="special in field.special"
-								style="height: 25px; width: 25px; display: inline-block; margin-right: 2px; text-align: center; font-size: larger; font-weight: strong; border-radius: 4px;"
+								style="color: #FFFFFF; height: 25px; width: 25px; display: inline-block; margin-right: 2px; text-align: center; font-size: larger; font-weight: strong; border-radius: 4px;"
 								ng-style="{ 'background-color': filterSpecials(field.unassignedSpecialChars, field.verifiedSpecialChars).indexOf(special) === -1 ? '#bbbbbb' : '#EC5D57' }"
 								ng-click="field.verifiedSpecialChars.push(special); $event.stopPropagation()">
 								{{special}}
@@ -60,8 +60,8 @@
 						data-toggle="tooltip" data-placement="top" title="{{typeTexts[field.detailType] ? typeTexts[field.detailType] : 'not found'}}"
 						class="dimension-type">
 						<span ng-hide="!file.reviewMode" class="pull-left"
-							style="width: 25px; font-weight: lighter; margin-top: 3px; text-align: center;"
-							ng-style="{ color: file.displayType ? textColors[field.detailType] : '#444444' }">
+							style="width: 25px; font-weight: lighter; text-align: center;"
+							ng-style="{ color: file.displayType ? textColors[field.detailType] : '#444444', 'font-size': numberWithValue(file, field)>999 ? 'smaller' : 'inherit', 'margin-top': numberWithValue(file, field)>999 ? '4px' : '3px' }">
 							{{numberWithValue(file, field)}}
 						</span>
 					</div>
@@ -77,7 +77,7 @@
 							ng-change="field.sortedValues[file.editIndex].color = colorCalc(file.data[file.editIndex][field.key], file.sortMode === sortModes[0] ? 'edit' : 'type', field)"
 							ng-style="{ 'color': colorCalc(file.data[file.editIndex][field.key], file.sortMode === sortModes[0] ? 'edit' : 'type', field) }"></input>
 					</span>
-					<div style="height:35px; display: inline-block"
+					<div style="height:35px; display: inline-block; background-color: #eeeeee"
 						ng-style="{ 'margin-left': file.editIndex !== null && file.editIndex !== undefined ? '-200px' : '0px' }">
 						<div ng-repeat="obj in field.sortedValues"
 							style="height: 35px; margin-right: 1px; display: inline-block;"
@@ -188,7 +188,7 @@
 						<div class="col-lg-9 col-md-9 col-sm-8 col-xs-8 col-condensed">
 	
 							<ui-select ng-model="selectedFieldMetadata.detailType" theme="selectize" ng-disabled="disabled" on-select="updateMetadata()" append-to-body="true">
-								<ui-select-match placeholder="Select or search">
+								<ui-select-match placeholder="Select">
 									{{$select.selected.name}}
 									<span class="caret"></span>
 								</ui-select-match>
@@ -225,7 +225,7 @@
 										<div class="col-lg-5 col-lg-offset-2 col-md-6 col-sm-6">
 	
 											<ui-select class="pull-right" ng-model="displayOptions.sortBy" theme="selectize" ng-disabled="disabled" on-select="updateMetadata()">
-												<ui-select-match placeholder="Select or search">
+												<ui-select-match placeholder="Select">
 													<!--<i class="fa margin-right" ng-class="$select.selected.icon"></i>-->
 													{{$select.selected.label}}
 													<span class="caret"></span>
@@ -245,7 +245,7 @@
 										<table
 											class="table table-striped"
 											data-ng-show="!filtered || (filtered && filtered.length > 0)">
-											<tr data-ng-repeat="val in filtered = (selectedFieldMetadata.uniques | filter:searchUnique) | limitTo:1000">
+											<tr data-ng-repeat="val in filtered = (selectedFieldMetadata.uniques | filter:searchUnique | orderBy: sortOrder) | limitTo:1000">
 													<td
 														data-ng-class="{ 'text-danger': findError(val.key) }"
 														title="{{findError(val.key).message}}"

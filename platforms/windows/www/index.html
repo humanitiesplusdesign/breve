@@ -11,20 +11,40 @@
         <link type="text/css" href="./palladio-metavis-component.css" rel="stylesheet" />  
 
         <!-- Font Awesome -->
-        <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link href="./bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
         
+        <script type="text/javascript" src="winstore-jscompat.js"></script>
         <script type="text/javascript" src="cordova.js"></script>
     </head>
 
     <body>
+      
+        <div style="margin-top:0px; margin-bottom:25px;">
+          <img src="breve_logo.svg" alt="Breve: See your data" width="600px" style="margin-left:25px"></img>
+        </div>
 
         <div id="metavis-here"></div>
+        
+        <div style="margin-top:50px; margin-left:50px; max-width:1000px; color: #AAAAAA; font-size: x-large; font-weight: lighter">
+          <p>
+            Please let us know what you think so we can make this tool better.<br />
+            Send us email at <a href="mailto:breve@designhumanities.org" target="_blank">breve@designhumanities.org</a> or tweet us at <a onclick="alert(window.open); window.open('http://twitter.com/home/?status=@hdstanford%20'); alert('hi again');">@hdstanford</a>.
+          </p>
+          <p>
+            Questions about how Breve works? See the tutorial at <a href="http://breve.designhumanities.org" target="_blank">http://breve.designhumanities.org</a><br />
+            Breve was created at the Humanities + Design research lab at Stanford University.
+          </p>
+        </div>
 
         <script src="./bower_components/palladio/palladio.js"></script>
         <script src="./palladio-metavis-component.js"></script>
 
         <script>
             document.addEventListener("deviceready", function() {
+              // window.open = cordova.InAppBrowser.open;
+              // alert(window.open);
+              // alert(cordova.InAppBrowser);
+              
               var components = startPalladio(['palladioMetavis']);
 
               components.loadData('empty.json', function() {

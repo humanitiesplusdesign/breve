@@ -172,7 +172,8 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-whitelist": "1.2.0",
-    "cordova-plugin-file": "4.0.1-dev"
+    "cordova-plugin-file": "4.0.1-dev",
+    "cordova-plugin-inappbrowser": "1.1.2-dev"
 }
 // BOTTOM OF METADATA
 });

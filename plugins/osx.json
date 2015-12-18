@@ -12,6 +12,9 @@
         },
         "cordova-plugin-file": {
             "PACKAGE_NAME": "org.designhumanities.breve"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "org.designhumanities.breve"
         }
     },
     "dependent_plugins": {}
