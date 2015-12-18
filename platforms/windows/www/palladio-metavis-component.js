@@ -80,39 +80,40 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 					
 					scope.lastFileName = null;
 					
-					var errorHandler = function (fileName, e) {  
-						alert("Error writing to " + fileName);
-					}
-					
 					scope.downloadFile = function(file) {
+            
 						var blob = new Blob(
 							[ d3.csv.format(file.data) ],
 							{type: "text/csv;charset=utf-8"}
 						);
 						var fileName = file.label + ".csv";
 						
-						var directory = cordova.file.documentsDirectory || cordova.file.dataDirectory || cordova.file.tempDirectory;
-						window.resolveLocalFileSystemURL(directory, function (directoryEntry) {
+            var errorHandler = function (fileName, blob, e) {  
+              saveAs(blob, fileName);
+            }
+            
+            var directory = cordova.file.documentsDirectory || cordova.file.dataDirectory || cordova.file.tempDirectory;
+            window.resolveLocalFileSystemURL(directory, function (directoryEntry) {
               var dateNow = new Date();
               var fileName = file.label + '-' + dateNow.getFullYear() + '-' +
                 (dateNow.getMonth()+1) + '-' + dateNow.getDay() + '-' +
                 dateNow.getHours() + '-' + dateNow.getMinutes() + '-' +
                 dateNow.getSeconds() + '.csv';
-							directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
-								fileEntry.createWriter(function (fileWriter) {
-									fileWriter.onwriteend = function (e) {
-								    // for real-world usage, you might consider passing a success callback
-										alert('File "' + fileName + '"" saved to documents directory.');
-									};
-				
-									fileWriter.onerror = function (e) {
-										// you could hook this up with our global error handler, or pass in an error callback
-										alert('Write failed: ' + e.toString());
-									};
-									fileWriter.write(blob);
-								}, errorHandler.bind(null, fileName));
-							}, errorHandler.bind(null, fileName));
-						}, errorHandler.bind(null, fileName));
+              directoryEntry.getFile(fileName, { create: true }, function (fileEntry) {
+                fileEntry.createWriter(function (fileWriter) {
+                  fileWriter.onwriteend = function (e) {
+                    // for real-world usage, you might consider passing a success callback
+                    alert('File "' + fileName + '" saved to documents directory.');
+                  };
+        
+                  fileWriter.onerror = function (e) {
+                    // you could hook this up with our global error handler, or pass in an error callback
+                    alert('Write failed: ' + e.toString());
+                  };
+                  fileWriter.write(blob);
+                }, errorHandler.bind(null, fileName, blob));
+              }, errorHandler.bind(null, fileName, blob));
+            }, errorHandler.bind(null, fileName, blob));
 					};
 					
 					scope.selectedFieldMetadata = {};
@@ -498,6 +499,25 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 					
 					scope.updateUniques = scope.updateMetadata;
 					
+          scope.loadData = function(filePath, fileName) {
+            try {
+              parseService.parseUrl(filePath).then(
+                function(csv){
+                  var url = filePath;
+                  var data = parseService.parseText(csv);
+                  dataService.addFile(data, fileName ? fileName : "From URL", url);
+                  scope.reparseFile(dataService.getFiles()[dataService.getFiles().length-1]);
+                  setTooltips();
+                },
+                function(error){
+                  scope.parseError = error;
+                });
+            } catch(error) {
+              scope.parseError = error.message;
+            }
+            setTooltips();
+          }
+          
 					scope.addFile =  function(text, fileName){
 	
 						// if no text return

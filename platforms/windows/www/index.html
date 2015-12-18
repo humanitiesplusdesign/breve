@@ -20,7 +20,9 @@
     <body>
       
         <div style="margin-top:0px; margin-bottom:25px;">
-          <img src="breve_logo.svg" alt="Breve: See your data" width="600px" style="margin-left:25px"></img>
+          <a href="http://breve.designhumanities.org">
+            <img src="breve_logo.svg" alt="Breve: See your data" width="600px" style="margin-left:25px"></img>
+          </a>
         </div>
 
         <div id="metavis-here"></div>
@@ -28,7 +30,7 @@
         <div style="margin-top:50px; margin-left:50px; max-width:1000px; color: #AAAAAA; font-size: x-large; font-weight: lighter">
           <p>
             Please let us know what you think so we can make this tool better.<br />
-            Send us email at <a href="mailto:breve@designhumanities.org">breve@designhumanities.org</a> or tweet us at <a onclick="window.open('http://twitter.com/home/?status=@hdstanford%20');">@hdstanford</a>.
+            Send us email at <a href="mailto:apps@designhumanities.org">breve@designhumanities.org</a> or tweet us at <a href="http://twitter.com/home/?status=@hdstanford%20%23breve%20">@hdstanford</a>.
           </p>
           <p>
             Questions about how Breve works? See the tutorial at <a href="http://breve.designhumanities.org">http://breve.designhumanities.org</a><br />
@@ -41,12 +43,6 @@
 
         <script>
             document.addEventListener("deviceready", function() {
-              // window.open = cordova.InAppBrowser.open;
-              // alert(window.open);
-              // alert(cordova.InAppBrowser);
-              
-              window.open('http://twitter.com/home/?status=@hdstanford%20');
-              alert("Opened");
               
               var components = startPalladio(['palladioMetavis']);
 
