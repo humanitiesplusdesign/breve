@@ -49,31 +49,11 @@ header .navbar-default .navbar-nav .active a:hover {
   text-shadow: none;
 }
 
-/**  Navbar Brand **/
-
-header .navbar-brand {
-  background: url();
-  background-repeat: no-repeat;
-  background-position: 15px 0;
-  background-size: 800px;
-  height: auto;
+header .nav-right {
+	padding-top:10px;
+	margin-right:0;
 }
 
-header .navbar-brand h1 {
-  color: white;
-  margin: 0;
-  font-size: 1.3em;
-  font-weight: 400;
-  padding-left: 105px;
-  padding-bottom:.5em;
-}
-
-header .navbar-brand span.subhead {
-  display: block;
-  font-family: "Roboto Slab", serif;
-  font-size: .6em;
-  font-weight: 100;
-}
 
 /**  Navbar Toggle **/
 header .navbar-toggle {
@@ -87,14 +67,14 @@ header .navbar-default .navbar-toggle .icon-bar {
 @media only screen
 and (max-width: 768px) {
   header .navbar-collapse.in {
-    background-color: rgba(0,0,0, .5);
+    background-color: rgba(0,0,0,.5);
   }
 }
 
 /**  nav inbody **/
 
 header .inbody {
-  background: rgba(232,232,230,.8);
+  background: rgba(232,232,230,1);
 }
 
 header .navbar.inbody {
@@ -103,13 +83,13 @@ header .navbar.inbody {
 }
 
 header .navbar.inbody .navbar-nav {
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 header .inbody .navbar-brand {
   background-size: 43px;
   background-position: top left;
-  margin-top: 5px;
+  margin-top: 0;
   padding-bottom: 0;
   margin-left: 10px;
 }
@@ -119,9 +99,7 @@ header .inbody .navbar-brand h1 {
   padding-left: 38px;
 }
 
-header .inbody .navbar-brand span.subhead {
-  display: none;
-}
+
 
 /**  Carousel Fade **/
 
@@ -179,28 +157,22 @@ header .inbody .navbar-brand span.subhead {
   margin-bottom: 30px;
 }
 
-/**  Page -- Mission **/
-#mission {
-  background-color: #E4D29D;
-  background-image: linear-gradient(to bottom, #EEF08A, #819A2D);
-  border-top: 20px solid rgba(238, 200, 86, .5);
-}
 
-/**  Page -- Services **/
+/**  Page -- how it works **/
 
-.service {
+.how {
   margin: 20px 0;
-  text-align: center;
+  text-align: left;
 }
 
-#services img.icon {
+#how img.icon {
   display: block;
   width: 80px;
   margin: 0 auto;
   margin-bottom: 5px;
 }
 
-#services h3 {
+#how h3 {
   margin-bottom: 10px;
 }
 
@@ -212,10 +184,27 @@ and (max-width: 768px) {
   }
 }
 
-/**  Page -- Staff **/
+/**  Page -- Try it! **/
+
+#try {
+	background-color: #9eb3c3;
+	padding-top: 30px;
+}
+#download {
+	
+}
+
+.download {
+	
+	padding:100px 0;
+	
+}
+
+/**  Page -- People **/
 
 #team {
   background-color: rgb(232,232,230);
+  padding-bottom:40px;
 }
 
 .person {
@@ -247,7 +236,7 @@ and (max-width: 768px) {
 footer {
   background: rgba(236,93,87,1);
   color: white;
-  font-size: .8em;
+  font-size: 2em;
   padding: 20px 0 40px 0;
 }
 
@@ -258,14 +247,9 @@ footer a {
   color: #E0E6AE;
 }
 
+
 footer a:hover {
   color: #4d4d47 !important;
-}
-
-footer .phone {
-  font-size: 1.4em;
-  font-weight: 700;
-  color: #E0E6AE;
 }
 
 footer .navbar {
@@ -276,13 +260,13 @@ footer .navbar {
 footer .navbar-default {
   background-color: transparent;
   border: none;
-  margin-right: 40px;
+  margin-right: 20px;
 }
 
 footer .navbar-nav>li a {
-  padding-top: 0;
+  padding-top: 10px;
   padding-bottom: 0;
-  text-decoration: underline;
-  color: #4d4d47 !important;
+  text-decoration: none;
+  color: #fff !important;
 }
 
