@@ -25,10 +25,10 @@
     </feature>
     <name>Breve</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        See your data.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="apps@designhumanities.org" href="http://breve.designhumanities.org">
+        Design + Humanities
     </author>
     <icon src="res/breve_icon_96.png" />
     <preference name="windows-target-version" value="10.0" />
