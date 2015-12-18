@@ -84,7 +84,29 @@
 - (void) webView:(WebView*) sender decidePolicyForNavigationAction:(NSDictionary*) actionInformation request:(NSURLRequest*) request frame:(WebFrame*) frame decisionListener:(id <WebPolicyDecisionListener>) listener {
     NSString* url = [[request URL] description];
     NSLog(@"navigating to %@", url);
-    [listener use];
+    // [listener use];
+    if ([actionInformation objectForKey:WebActionElementKey]) {
+        [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+        [listener ignore];
+    }
+    else {
+        [listener use];
+    }
+}
+
+// - (void)webView:(WebView *)sender decidePolicyForNavigationAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request frame:(WebFrame *)frame decisionListener:(id<WebPolicyDecisionListener>)listener {
+//     //  if( [sender isEqual:self] ) {
+//         [listener use];
+//     //  }
+//     //  else {
+//         // [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+//         // [listener ignore];
+//     //  }
+// }
+
+- (void)webView:(WebView *)sender decidePolicyForNewWindowAction:(NSDictionary *)actionInformation request:(NSURLRequest *)request newFrameName:(NSString *)frameName decisionListener:(id<WebPolicyDecisionListener>)listener {
+    [[NSWorkspace sharedWorkspace] openURL:[actionInformation objectForKey:WebActionOriginalURLKey]];
+    [listener ignore];
 }
 
 #pragma mark WebViewDelegate
