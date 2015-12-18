@@ -498,13 +498,13 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 					
 					scope.updateUniques = scope.updateMetadata;
 					
-          scope.loadData = function(filePath) {
+          scope.loadData = function(filePath, fileName) {
             try {
               parseService.parseUrl(filePath).then(
                 function(csv){
                   var url = filePath;
                   var data = parseService.parseText(csv);
-                  dataService.addFile(data, "From URL", url);
+                  dataService.addFile(data, fileName ? fileName : "From URL", url);
                   scope.reparseFile(dataService.getFiles()[dataService.getFiles().length-1]);
                   setTooltips();
                 },
