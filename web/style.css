@@ -6,6 +6,7 @@ body{
   font-weight: 300;
   font-size: 2em;
   position: relative;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -27,19 +28,18 @@ header .navbar-default {
 }
 
 header .navbar-default .navbar-nav a {
-  color: white;
+  color: #8a8a80;
   padding: 5px 8px;
 }
 
 header .navbar-default .navbar-nav a:hover {
-  color: #EEC856;
+  color: #4d4d47;
 }
 
 header .navbar-default .navbar-nav .active a {
-  font-weight: 700;
-  color: #EEC856;
+  font-weight: 300;
+  color: #4d4d47;
   background: transparent;
-  border-bottom: 4px solid #EEC856;
   text-shadow: none;
 }
 
@@ -52,10 +52,10 @@ header .navbar-default .navbar-nav .active a:hover {
 /**  Navbar Brand **/
 
 header .navbar-brand {
-  background: url(images/breve_icon.svg);
+  background: url();
   background-repeat: no-repeat;
   background-position: 15px 0;
-  background-size: 80px;
+  background-size: 800px;
   height: auto;
 }
 
@@ -94,7 +94,7 @@ and (max-width: 768px) {
 /**  nav inbody **/
 
 header .inbody {
-  background: rgba(104,73,49,.9);
+  background: rgba(232,232,230,.8);
 }
 
 header .navbar.inbody {
@@ -161,10 +161,12 @@ header .inbody .navbar-brand span.subhead {
 #featured .item {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
-  width: 80%;
+  background-position: 100px 100px;
+  width: 90%;
   height: 100%;
+  
 }
+
 
 
 /**  Page **/
@@ -212,28 +214,30 @@ and (max-width: 768px) {
 
 /**  Page -- Staff **/
 
-#staff {
-  background-color: #E4D29D;
-  background-image: linear-gradient(to bottom, #E4D29D, #CDAE50);
+#team {
+  background-color: rgb(232,232,230);
 }
 
-.doctor {
+.person {
   margin: 10px 0;
 }
 
-.doctor h3 {
-  font-weight: 600;
+.person h3 {
+  font-weight: 300;
   font-size: 1.2em;
-  color: #6F4E36;
+  color: rgb(57,57,52);
   padding-bottom: 5px;
 }
 
-.doctor p {
+.person p {
   font-size: .8em;
 }
 
-.doctor img {
+.person img {
   width: 100%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  border:1px solid rgb(57,57,52);
 }
 
 
@@ -241,17 +245,13 @@ and (max-width: 768px) {
 /**  Footer **/
 
 footer {
-  background: #586D74;
+  background: rgba(236,93,87,1);
   color: white;
   font-size: .8em;
   padding: 20px 0 40px 0;
 }
 
-#funding {
-    background: url(../../img/neh_logo.png);
-    background-repeat: no-repeat;
-	
-}
+
 
 
 footer a {
@@ -259,7 +259,7 @@ footer a {
 }
 
 footer a:hover {
-  color: #EEC856 !important;
+  color: #4d4d47 !important;
 }
 
 footer .phone {
@@ -283,6 +283,6 @@ footer .navbar-nav>li a {
   padding-top: 0;
   padding-bottom: 0;
   text-decoration: underline;
-  color: #EEC856 !important;
+  color: #4d4d47 !important;
 }
 

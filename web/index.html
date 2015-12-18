@@ -14,7 +14,7 @@
 
 <header>
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
           <span class="sr-only">Toggle navigation</span>
@@ -22,15 +22,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#featured"><h1>Wisdom <span class="subhead">Pet Medicine</span></h1></a>
+        <a class="navbar-brand" href="#featured"><h1><img width="400" src="images/breve_logo.svg"></h1></a>
       </div><!-- navbar-header -->
       <div class="collapse navbar-collapse" id="collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li class="active"><a href="#featured">Home</a></li>
-          <li><a href="#mission">Mission</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#staff">Staff</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
+          <li class="active"><a href="#featured">&#9733;</a></li>
+          <li><a href="#why">Why?</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#try">Try It</a></li>
+          <li><a href="#team">People</a></li>
+          <li><a href="">&#xf099;</a></li>
+		  <li><a href="">&#xf09b;</a></li>
         </ul>        
       </div><!-- collapse navbar-collapse -->
     </div><!-- container -->
@@ -43,10 +45,10 @@
 
     <div class="carousel-inner fullheight">
       <div class="item"><img src="images/1mapgaps_errors.png" alt="Map gaps and mis-matched values"></div>
-      <div class="item"><img src="images/carousel-mission.jpg" alt="Mission"></div>
-      <div class="item"><img src="images/carousel-vaccinations.jpg" alt="Vaccinations"></div>
-      <div class="item"><img src="images/carousel-fish.jpg" alt="Fish"></div>
-      <div class="item"><img src="images/carousel-exoticanimals.jpg" alt="Exotic Animals"></div>      
+      <div class="item"><img src="images/2datatypescolumn.png" alt="Identify Data Types"></div>
+      <div class="item"><img src="images/3mapdatatypes.png" alt="Map by Data Types"></div>
+      <div class="item"><img src="images/4editrecord.png" alt="Edit a record"></div>
+	  <div class="item"><img src="images/5sort.png" alt="Sort by Data Types"></div>      
     </div><!-- carousel-inner -->
 
     <a class="left carousel-control" href="#featured" role="button" data-slide="prev">
@@ -59,29 +61,25 @@
 </header>
 
 <div class="main">
-  <div class="page" id="introduction">
+  <div class="page" id="why">
     <div class="content container">
-      <h2>Introduction</h2>      
-      <div class="row">
-		<div class="col-md-10-offset-2">
-
-
-		</div><!-- column -->
-      </div><!-- row -->
-    </div><!-- content container -->
-  </div><!-- introduction page -->
-
-  <div class="page" id="howitworks">
-    <div class="content container">
-      <h2>Articles</h2>
+      <h2>What does it do?</h2>
       <div class="row">
       </div><!-- row -->   
     </div><!-- content container -->
-  </div><!-- Articles page -->
+  </div><!-- Why page -->
+  
+  <div class="page" id="how">
+    <div class="content container">
+      <h2>How It Works</h2>
+      <div class="row">
+      </div><!-- row -->   
+    </div><!-- content container -->
+  </div><!-- How page -->
 
-  <div class="page" id="about">
+  <div class="page" id="try">
     <div class="container-fluid">
-      <h2 id="ourproject">Our project</h2>
+      <h2 id="download">Try it!</h2>
       <div class="row">
 
 
@@ -90,50 +88,51 @@
   </div><!-- project page -->
   
   <div class="page" id="team">
-    <div class="container-fluid">
-      <h2 id="ourstaff">Our Team</h2>
+    <div class="container">
+      <h2 id="team">People Involved</h2>
       <div class="row">
-<p>Breve is developed and maintained at <a href="hdlab.stanford.edu">Humanities + Design</a>, a research lab at the Center for Spatial and Textual Analysis, Stanford University.
-        <div class="doctor col-lg-4">
+<p>Breve has been developed under the <a href="http://hdlab.stanford.edu">Networks in History project</a>, funded by a grant from the <a href="http://www.neh.gov/divisions/odh/about">Office of Digital Humanities</a> at the National Endwoment for the Humanities. Members of a large community of researchers have contributed to the design of Breve and the data analysis toolset, <a href="http://palladio.designhumanities.org">Palladio</a>. (Breve will be incorporated into Palladio in the next big release.)</p>
+<p>Community participation makes these tools possible. We are particularly grateful to colleages at Stanford's Center for Spatial and Textual Analysis, where Humanities + Deisgn resides and colleagues at the Stanford University Library's <a href="http://cidr.stanford.edu">Center for Interdisciplinary Digital Research</a>.</p><p>Please contact us via <a href="mailto:apps@designhumanities.org">email</a> or <a href="">twitter</a> with your questions and suggestions for making Breve a useful tool for research and peer review.
+        <div class="person col-lg-4">
           <div class="row">
             <div class="photo col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 col-lg-4 col-lg-offset-0">
-              <img class="img-circle" src="images/doctor-winthrop.jpg" alt="Photo of Dr Sanders">
+              <img class="img-circle" src="https://classics.stanford.edu/sites/default/files/ceserani.png" alt="Photo of Giovanna Ceserani">
             </div><!-- photo -->
             <div class="info col-xs-8 col-xs-offset-2 col-sm-7 col-sm-offset-0 col-md-6 col-lg-8">
               <h3>Giovanna Ceserani</h3>
-              <p>Giovanna is Faculty Director at Humanities + Design.</p>
+              <p>Faculty Director,<br />Humanities + Design</p>
             </div><!-- info -->
           </div> <!-- inner row -->
-        </div> <!-- doctor -->
+        </div> <!-- person -->
 
-        <div class="doctor col-lg-4">
+        <div class="person col-lg-4">
           <div class="row">
             <div class="photo col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 col-lg-4 col-lg-offset-0">
-              <img class="img-circle" src="images/doctor-chase.jpg"  alt="Photo of Dr Sanders">
+              <img class="img-circle" src="https://pbs.twimg.com/profile_images/2573500348/xlb8oyj7szhzdio6c7o8.jpeg"  alt="Photo of Ethan Jewett">
             </div><!-- photo -->
             <div class="info col-xs-8 col-xs-offset-2 col-sm-7 col-sm-offset-0 col-md-6 col-lg-8">
               <h3>Ethan Jewett</h3>
-              <p>Ethan is the lead developer.</p>
+              <p>Lead Developer</p>
             </div><!-- info -->
           </div> <!-- inner row -->
-        </div> <!-- doctor -->
+        </div> <!-- person -->
 
-        <div class="doctor col-lg-4">
+        <div class="person col-lg-4">
           <div class="row">
             <div class="photo col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 col-lg-4 col-lg-offset-0">
-              <img class="img-circle" src="images/doctor-sanders.jpg" alt="Photo of Dr Sanders">
+              <img class="img-circle" src="https://avatars0.githubusercontent.com/u/288005?v=3&s=460" alt="Photo of Nicole Coleman">
             </div><!-- photo -->
             <div class="info col-xs-8 col-xs-offset-2 col-sm-7 col-sm-offset-0 col-md-6 col-lg-8">
               <h3>Nicole Coleman</h3>
-             <p>Nicole is Research Director at H+D and designer for Breve.</p>
+             <p>Research Director,<br />Humanities + Design, Designer</p>
             </div><!-- info -->
           </div> <!-- inner row -->
-        </div> <!-- doctor -->
+        </div> <!-- person -->
 
 
       </div><!-- outer row -->
     </div><!-- container -->
-  </div><!-- staff page -->
+  </div><!-- team page -->
 
 <footer>
   <div class="content container-fluid">
@@ -145,7 +144,7 @@
       <div class="col-sm-6">
         <nav class="navbar navbar-default" role="navigation">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="mailto:breve@designhumanities.org">Contact us</li>
+            <li><a href="mailto:apps@designhumanities.org">Contact us</li>
             <li><a href="#">Stanford University</a></li>
           </ul>
         </nav>        
