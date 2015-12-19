@@ -158,21 +158,24 @@ header .inbody .navbar-brand h1 {
 }
 
 
-/**  Page -- how it works **/
+/**  Page -- features **/
 
-.how {
+.features {
   margin: 20px 0;
   text-align: left;
 }
 
-#how img.icon {
+#features img.icon {
   display: block;
   width: 80px;
   margin: 0 auto;
   margin-bottom: 5px;
 }
 
-#how h3 {
+#features h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+	color:rgb(236,93,87);
   margin-bottom: 10px;
 }
 
