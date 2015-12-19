@@ -63,15 +63,58 @@
     <div class="content container">
       <h2>Why Breve?</h2>
       <div class="row">
-          <p class="col-md-5 col-md-offset-1">We designed Breve for researchers who have to work with very incomplete and messy data.  We work often with historical data that is full of inconsistencies and errors that can be difficult to uncover in tabular form. We were inspired by Victor Powell's <a href="http://t.co/339TNaGrch">CSV fingerprint</a> which he describes as a "birdseye view of the file without too much distracting detail". Breve gives you that meta view of a data set and also lets you drill down to records and columns, and edit values.</p>
-          <p class="col-md-5">At the beginning of a project and at points along the way, it is helpful to be able to see what you have to work with &mdash; all at once&mdash;rather than scrolling through a long spreadsheet. Ben Fry's <cite>Preservation of Favoured Traces</cite> originally built in Processing (<a href="http://fathom.info/latest/12705">and now available in print!</a>) elegantly reveals deletions and additions in the seven editions of Darwin's <cite>On the Origin of Species</cite>. Since humanities data is significantly shaped and enriched during the research process, we wanted to make the evolution of a constructed data set clearly visible to the author.</p>
+          <p class="col-md-5 col-md-offset-1">We designed Breve for researchers who have to work with very incomplete and messy data.  Historical data is often full of inconsistencies and errors that can be difficult to see when scrolling through a spreadsheet. We were inspired by Victor Powell's <a href="http://t.co/339TNaGrch">CSV fingerprint</a> which he describes as a "birdseye view of the file without too much distracting detail". Breve gives you that meta view of tabular data and also lets you drill down to records and columns, and edit values.</p>
+          <p class="col-md-5">At the beginning of a research project and at points along the way, it is helpful to be able to see what you have to work with &mdash; all at once&mdash;. Ben Fry's <cite>Preservation of Favoured Traces</cite> originally built in Processing (<a href="http://fathom.info/latest/12705">and now available in print!</a>) elegantly reveals deletions and additions in the seven editions of Darwin's <cite>On the Origin of Species</cite>. Since humanities data is significantly shaped and enriched during the research process, we wanted to make the evolution of a constructed data set clearly visible to the author.</p>
       </div><!-- row -->   
     </div><!-- content container -->
   </div><!-- Why page -->
 
+  <div class="page" id="features">
+    <div class="content container">
+      <h2>Features</h2>
+      <div class="row">
+          <article class="how col-md-4 col-sm-6 col-xs-12">
+
+            <h3>Map Errors and gaps</h3>
+            <p>The default view is a very simple gray, white and, if there are errors, red. An error in Breve is simply a mis-matched value. The application guesses the data type (date, text string, number, url, etc.) when you upload the data. If you have a series of numeric values with a few alpha characters, Breve will flag those values with alpha characters in red as "mismatched".</p>
+          </article>
+		  
+          <article class="how col-md-4 col-sm-6 col-xs-12">
+            <h3>Edit records and save</h3>
+            <p>With Breve you can easily review records and edit values. Click on any cell in the table map to open a record. Use your keyboard arrow keys to move through the records. Use the Escape key to enter the 'Edit Record' mode. If you do make any changes to the values, those will be stored locally in your browser. When you download the csv, it will reflect those changes.</p>
+          </article>
+
+          <article class="how col-md-4 col-sm-6 col-xs-12">
+
+            <h3>Map by data type</h3>
+            <p>The first column to the right of your column names gives the number of values in that column and a color that corresponds to a data type. Mouse over the color to see the data type label. If you have a binary data type, Breve will distinctly identify the two values by color. Also, the blue of the "date" data type varies from light to dark according to the specificity of the date.</p>
+          </article>
+
+          <article class="how col-md-4 col-sm-6 col-xs-12">
+            <h3>Edit dimensions</h3>
+            <p>If Breve guessed wrong about a data-type, you can edit it by clicking on the column label. Within the 'Edit Dimension' view you can also sort values by count or in alpha-numeric order. If fields in a column include multiple values, you can specify the delimiter and review the individual values.</p>
+          </article>
+
+          <article class="how col-md-4 col-sm-6 col-xs-12">
+            <h3>Sort by data type</h3>
+				<p>The third view is a column sort by data type. The 'Edit Record' feature is not available in this view because the values are reordered to make it easy to see at a glance the relative number of missing values and data types per column.</p>
+          </article>
+
+          <article class="how col-md-4 col-sm-6 col-xs-12">
+            <h3>Assign a source type</h3>
+            <p>The 'Edit dimensions' window includes the option to assign one of five source types: 1. Generated automatically, like and index value; 2. Data authored/created by the researcher; 3. Curated or edited source data; and 4. Untouched source data. Assigning a source type will put a marker in front of the column label.
+          </article>
+		  
+
+
+      </div> 
+    </div>
+  </div><!-- end page How -->
+
   <div class="page" id="try">
     <div class="container-fluid">
       <h2 id="download">Try it!</h2>
+	  <p>Breve is available as a desktop app (Mac only, right now) and as a web app. However you choose to use it, the data you upload will be processed only by the web browser. We do not store your data server-side.</p>
       <div class="row download">
 		  <div class="col-md-3 col-md-offset-4"><a class="btn btn-default" href="files/breve.app.zip" role="button">Download .zip</a></div>
 		  <div class="col-md-3"><a class="btn btn-default" href="http://breve.designhumanities.org/app/" role="button">Browser version</a></div>
@@ -84,8 +127,8 @@
     <div class="container">
       <h2 id="team">The Team</h2>
       <div class="row">
-<p>Breve is being developed under the <a href="http://hdlab.stanford.edu">Networks in History project</a>, funded by a grant from the <a href="http://www.neh.gov/divisions/odh/about">Office of Digital Humanities</a> at the National Endwoment for the Humanities. A large community of humanities researchers has contributed to the design of Breve and our other data visualization tool, <a href="http://palladio.designhumanities.org">Palladio</a>. (Breve will be incorporated into Palladio in the next release.)</p>
-<p>Community participation makes these tools possible. We are particularly grateful to colleages at Stanford's <a href="http://cesta.stanford.edu">Center for Spatial and Textual Analysis</a>, where Humanities + Deisgn resides and colleagues at the Stanford University Library's <a href="http://cidr.stanford.edu">Center for Interdisciplinary Digital Research</a>.</p><p>Please contact us via <a href="mailto:apps@designhumanities.org">email</a> or <a href="">twitter</a> with your questions and suggestions for making Breve a useful tool for research and peer review.
+<p>Breve is being developed under the <a href="http://hdlab.stanford.edu">Networks in History project</a>, funded by a grant from the <a href="http://www.neh.gov/divisions/odh/about">Office of Digital Humanities</a> at the National Endowment for the Humanities. A large community of humanities researchers has contributed to the design of Breve and our other data visualization tool, <a href="http://palladio.designhumanities.org">Palladio</a>. (Breve will be incorporated into Palladio in the next release.)</p>
+<p>Community participation makes these tools possible. We are particularly grateful to colleagues at Stanford's <a href="http://cesta.stanford.edu">Center for Spatial and Textual Analysis</a>, where Humanities + Design resides, and colleagues at the Stanford University Library's <a href="http://cidr.stanford.edu">Center for Interdisciplinary Digital Research</a>.</p><p>Please contact us via <a href="mailto:apps@designhumanities.org">email</a> or <a href="">twitter</a> with your questions and suggestions for making Breve a useful tool for research and peer review.
         <div class="person col-lg-4">
           <div class="row">
             <div class="photo col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-1 col-md-2 col-md-offset-2 col-lg-4 col-lg-offset-0">
