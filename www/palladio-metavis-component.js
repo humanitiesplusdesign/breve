@@ -242,6 +242,27 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 						if(!verified) { verified = []; }
 						return unassigned.filter(function(d) { return verified.indexOf(d) === -1; });
 					}
+          
+          scope.loadSelect = {};
+          
+          scope.demoFiles = [
+            {
+              path: 'data/Film_Locations_in_San_Francisco.csv',
+              label: 'Film Locations',
+              description: 'Accessed December 10, 2015 - <a href="https://data.sfgov.org/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am">source at data.sfgov.org</a> (click link to open source page)',
+              displayKey: 'Film locations in San Francisco'
+            },{
+              path: 'data/Mobile_Food_Facility_Permit.csv',
+              label: 'Food Permits',
+              description: 'Accessed December 10, 2015 - <a href="https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat">source at data.sfgov.org</a> (click link to open source page)',
+              displayKey: 'Mobile Food Facility Permits'
+            },{
+              path: 'data/SF_Civic_Art_Collection.csv',
+              label: 'SF Civic Art',
+              description: 'Accessed December 10, 2015 - <a href="https://data.sfgov.org/Culture-and-Recreation/SF-Civic-Art-Collection/zfw6-95su">source at data.sfgov.org</a> (click link to open source page)',
+              displayKey: 'SF Civic Art Collection (partial)'
+            }
+          ]
 				},
 
 				post : function(scope, element, attrs) {
@@ -507,6 +528,7 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
                   var data = parseService.parseText(csv);
                   dataService.addFile(data, fileName ? fileName : "From URL", url);
                   scope.reparseFile(dataService.getFiles()[dataService.getFiles().length-1]);
+                  scope.loadSelect = {};
                   setTooltips();
                 },
                 function(error){

@@ -6,6 +6,12 @@ body {
   height: 100%;
 }
 
+.file-selector .selectize-input {
+  width: 300px;
+  padding-left: 3px;
+  font-weight:lighter;
+}
+
 .logo {
   width: 200px;
   margin-bottom: 10px;
