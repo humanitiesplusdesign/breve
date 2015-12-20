@@ -200,11 +200,10 @@ angular.module('palladioMetavis', ['palladio', 'palladio.services'])
 					];
 					
 					scope.sourceTexts = {
-						source: 'Directly from source data',
+						sourced: 'Directly from source data',
 						curated: 'Curated values based on source data',
 						authored: 'Authored information',
-						generated: 'Generated for visualization or data analysis purposes',
-						unknown: 'Unknown source'
+						generated: 'Generated for visualization or data analysis purposes'
 					};
 					
 					scope.sourceTextArray = d3.entries(scope.sourceTexts).map(function(d) {
