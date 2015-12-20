@@ -160,6 +160,10 @@ header .inbody .navbar-brand h1 {
 
 /**  Page -- features **/
 
+#features{
+	background-color: rgba(161,192,136,.5);
+}
+
 .features {
   margin: 20px 0;
   text-align: left;
@@ -186,6 +190,7 @@ and (max-width: 768px) {
     padding: 0 20%;
   }
 }
+
 
 /**  Page -- Try it! **/
 
