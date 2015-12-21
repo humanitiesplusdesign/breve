@@ -1,16 +1,16 @@
 <div id="main">
   <div ng-show="files.length === 0" style="width: 80%; margin-left: 10%">
 		<textarea ui-refresh="" ui-codemirror="{ mode : 'text', lineNumbers : true, lineWrapping: true, onLoad : codemirrorLoaded }" placeholder="Paste your data or drop a file here" ng-model="text"></textarea>
-    <!--<button type="button" class="btn btn-primary" ng-click="addFile(text); text = null">Load</button>
-    <span style="color:#AAAAAA;font-weight:lighter;">after dragging or pasting CSV data above, or click one of these options to try a sample data set:</span>
+    <!--<span style="color:#AAAAAA;font-weight:lighter;">after dragging or pasting CSV data above, or click one of these options to try a sample data set:</span>
     <ul style="color:#AAAAAA; list-style-type: none; margin-left:100px;font-weight:lighter;">
       <li><a ng-click="loadData('data/Film_Locations_in_San_Francisco.csv', 'Film Locations')">Film locations in San Francisco</a> (Accessed December 10, 2015 - <a href="https://data.sfgov.org/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am">source at data.sfgov.org</a>)</li>
       <li><a ng-click="loadData('data/Mobile_Food_Facility_Permit.csv', 'Food Permits')">Mobile Food Facility Permits</a> (Accessed December 10, 2015 - <a href="https://data.sfgov.org/Economy-and-Community/Mobile-Food-Facility-Permit/rqzj-sfat">source at data.sfgov.org</a>)</li>
       <li><a ng-click="loadData('data/SF_Civic_Art_Collection.csv', 'SF Civic Art')">SF Civic Art Collection (partial)</a> (Accessed December 10, 2015 - <a href="https://data.sfgov.org/Culture-and-Recreation/SF-Civic-Art-Collection/zfw6-95su">source at data.sfgov.org</a>)</li>
     </ul>-->
-    <div>
+    <div style="width:1000px;">
+      <button type="button" class="btn btn-primary" ng-click="addFile(text); text = null" style="margin-top:-26px;">Load</button>
       <span style="color:#AAAAAA;font-weight:lighter;vertical-align: top;margin-top: 8px;display: inline-block; font-size: 13px;">
-        Drag CSV file or paste data above, or
+        after dragging CSV file or pasting data above, or
       </span>
       <ui-select ng-model="loadSelect.file" theme="selectize" on-select="loadData($select.selected.path, $select.selected.label);" append-to-body="true"
         style="width: 600px; display: inline-block"
