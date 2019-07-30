@@ -1,0 +1,280 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Roboto+Slab:400,100,300,700);
+
+/**  Basic Page CSS **/
+body{
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+  position: relative;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+  margin: 0;
+}
+
+/**  Header Navigation **/
+
+header .navbar {
+  padding: 30px 0;
+  transition: all .5s ease-out;
+}
+
+header .navbar-default {
+  background-color: transparent;
+  border: none;
+}
+
+header .navbar-default .navbar-nav a {
+  color: #8a8a80;
+  padding: 5px 8px;
+}
+
+header .navbar-default .navbar-nav a:hover {
+  color: #4d4d47;
+}
+
+header .navbar-default .navbar-nav .active a {
+  font-weight: 300;
+  color: #4d4d47;
+  background: transparent;
+  text-shadow: none;
+}
+
+header .navbar-default .navbar-nav .active a:hover {
+  color: #E15D5F;
+  background: transparent;
+  text-shadow: none;
+}
+
+header .nav-right {
+	padding-top:10px;
+	margin-right:0;
+}
+
+
+/**  Navbar Toggle **/
+header .navbar-toggle {
+  background-color: #279182;
+}
+
+header .navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+@media only screen
+and (max-width: 768px) {
+  header .navbar-collapse.in {
+    background-color: rgba(0,0,0,.5);
+  }
+}
+
+/**  nav inbody **/
+
+header .inbody {
+  background: rgba(232,232,230,1);
+}
+
+header .navbar.inbody {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+header .navbar.inbody .navbar-nav {
+  padding-top: 15px;
+}
+
+header .inbody .navbar-brand {
+  background-size: 43px;
+  background-position: top left;
+  margin-top: 0;
+  padding-bottom: 0;
+  margin-left: 10px;
+}
+
+header .inbody .navbar-brand h1 {
+  font-size: 1.1em;
+  padding-left: 38px;
+}
+
+
+
+/**  Carousel Fade **/
+
+.carousel.fade {
+  opacity: 1;
+}
+
+.carousel.fade .item {
+  transition: opacity ease-out .7s;
+  left: 0;
+  opacity: 0;
+  top: 0;
+  position: absolute;
+  width: 100%;
+  display: block;
+}
+
+.carousel.fade .item:first-child {
+  top: auto;
+  opacity: 0;
+  position: relative;
+}
+
+.carousel.fade .item.active {
+  opacity: 1;
+}
+
+.carousel-control {
+  opacity: 0;
+}
+
+.carousel-control.right,
+.carousel-control.left {
+  background-image: none;
+}
+
+#featured .item {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 100px 100px;
+  width: 90%;
+  height: 100%;
+  
+}
+
+
+
+/**  Page **/
+.page {
+  padding: 50px 0;
+}
+
+.page h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+/**  Page -- features **/
+
+#features{
+	background-color: rgba(161,192,136,.5);
+}
+
+.features {
+  margin: 20px 0;
+  text-align: left;
+}
+
+#features img.icon {
+  display: block;
+  width: 80px;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+#features h3 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+	color:rgb(236,93,87);
+  margin-bottom: 10px;
+}
+
+@media only screen 
+and (min-width: 450px)
+and (max-width: 768px) {
+  .service p {
+    padding: 0 20%;
+  }
+}
+
+
+/**  Page -- Try it! **/
+
+#try {
+	background-color: #9eb3c3;
+	padding-top: 30px;
+}
+#download {
+	
+}
+
+.download {
+	
+	padding:100px 0;
+	
+}
+
+/**  Page -- People **/
+
+#team {
+  background-color: rgb(232,232,230);
+  padding-bottom:40px;
+}
+
+.person {
+  margin: 10px 0;
+}
+
+.person h3 {
+  font-weight: 300;
+  font-size: 1.2em;
+  color: rgb(57,57,52);
+  padding-bottom: 5px;
+}
+
+.person p {
+  font-size: .8em;
+}
+
+.person img {
+  width: 100%;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  border:1px solid rgb(57,57,52);
+}
+
+
+
+/**  Footer **/
+
+footer {
+  background: rgba(236,93,87,1);
+  color: white;
+  font-size: 2em;
+  padding: 20px 0 40px 0;
+}
+
+
+
+
+footer a {
+  color: #E0E6AE;
+}
+
+
+footer a:hover {
+  color: #4d4d47 !important;
+}
+
+footer .navbar {
+  margin-bottom: 0;
+  min-height: 0;
+}
+
+footer .navbar-default {
+  background-color: transparent;
+  border: none;
+  margin-right: 20px;
+}
+
+footer .navbar-nav>li a {
+  padding-top: 10px;
+  padding-bottom: 0;
+  text-decoration: none;
+  color: #fff !important;
+}
+
